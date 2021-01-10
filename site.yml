@@ -1,0 +1,21 @@
+---
+
+- name: A sample Ansible Playbook for query a Web API and parsing the dictionary for a specific item
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  roles:
+
+    - role: Web-Request-Curl
+      tags: 
+      - curl
+
+    - role: Web-Request-PS
+      tags: 
+      - powershell
+
+    - role: Web-Request-Ansible
+      tags: 
+      - ansible
+

@@ -1,0 +1,13 @@
+---
+
+- name: Sample Web Request (using PowerShell)
+  shell: | 
+    ((Invoke-WebRequest -Uri https://reqres.in/api/unknown | ConvertFrom-Json).data | where { $_.name -eq 'blue turquoise' }).year
+  args:
+    executable: /usr/bin/pwsh
+  register: response
+
+
+- name: Return Output from PowerShell (Debug Output)
+  debug:
+    msg: "{{ response.stdout | trim }}"

@@ -1,0 +1,16 @@
+---
+
+- name: Sample Web Request
+  uri:
+    url: "https://reqres.in/api/unknown"
+    method: GET
+    body_format: json
+    return_content: true
+  register: response
+
+
+- name: Parse Specific Attributes from the JSON Response (Debug Output)
+  debug:
+    msg: "{{ response.json | json_query(jquery) }}"
+  vars:
+    jquery: "data[?name=='blue turquoise'] | [0].year"

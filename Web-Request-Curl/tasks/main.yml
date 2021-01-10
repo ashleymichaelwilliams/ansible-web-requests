@@ -1,0 +1,15 @@
+---
+
+- name: Sample Web Request (using Curl + jq)
+  shell: | 
+    curl -s https://reqres.in/api/unknown | jq -r '.data[] | select(.name=="blue turquoise").year'
+  args:
+    executable: /bin/bash
+  register: response
+
+
+- name: Return Output from Bash (Debug Output)
+  debug:
+    msg: "{{ response.stdout }}"
+
+
