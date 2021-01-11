@@ -11,5 +11,3 @@
 - name: Return Output from Bash (Debug Output)
   debug:
     msg: "{{ response.stdout }}"
-
-

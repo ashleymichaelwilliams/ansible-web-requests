@@ -1,6 +1,6 @@
 ---
 
-- name: Sample Web Request
+- name: Sample Web Request (using Ansible uri Module)
   uri:
     url: "https://reqres.in/api/unknown"
     method: GET
